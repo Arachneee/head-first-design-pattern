@@ -5,4 +5,9 @@ public class NoCommand implements Command {
     public void execute() {
         System.out.println("아무일도 일어나지 않았다.");
     }
+
+    @Override
+    public void undo() {
+        System.out.println("아무일도 일어나지 않았다.");
+    }
 }
