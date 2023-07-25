@@ -1,9 +1,12 @@
 package pattern.proxy;
 
+import java.rmi.Naming;
+
 import pattern.proxy.GumballMachine;
 
 public class GumballMachineTestDrive {
     public static void main(String[] args) {
+        GumballMachine gumballMachine = null;
         int count = 0;
         args = new String[] {"Hogeon", "5"};
 
@@ -12,8 +15,14 @@ public class GumballMachineTestDrive {
             System.exit(1);
         }
 
-        count = Integer.parseInt(args[1]);
-        GumballMachine gumballMachine = new GumballMachine(args[0], count);
+        try {
+            count = Integer.parseInt(args[1]);
+            gumballMachine = new GumballMachine(args[0], count);
+            Naming.rebind("//" + args[0] + "/gumballmachine", gumballMachine);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         GumballMonitor monitor = new GumballMonitor(gumballMachine);
 
         System.out.println(gumballMachine);
