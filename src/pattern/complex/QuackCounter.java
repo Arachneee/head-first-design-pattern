@@ -1,6 +1,7 @@
 package pattern.complex;
 
 public class QuackCounter implements Quackable {
+
 	Quackable duck;
 	static int numberOfQuacks;
 
@@ -12,6 +13,7 @@ public class QuackCounter implements Quackable {
 		duck.quack();
 		numberOfQuacks++;
 	}
+
 
 	public static int getQuacks() {
 		return numberOfQuacks;

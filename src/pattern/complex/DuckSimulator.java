@@ -1,5 +1,9 @@
 package pattern.complex;
 
+import java.util.Comparator;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import pattern.adapter.Duck;
 
 public class DuckSimulator {
@@ -19,8 +23,6 @@ public class DuckSimulator {
 		Quackable gooseDuck = duckFactory.createGooseDuck();
 
 		System.out.println("\n오리 시뮬레이션 게임 (+옵저버)");
-
-
 
 		Flock flockOfDucks = new Flock();
 
@@ -43,6 +45,8 @@ public class DuckSimulator {
 		flockOfMallard.add(mallardDuck4);
 
 		flockOfDucks.add(flockOfMallard);
+
+
 
 		System.out.println("\n 오리 시뮬레이션 게임: 전체 무리");
 		simulate(flockOfDucks);
